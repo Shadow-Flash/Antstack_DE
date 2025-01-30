@@ -1,0 +1,19 @@
+services:
+  asdatabase:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=anstack_de
+    # volumes:
+    #   - "./anstack_de_data:/var/lib/postgresql/data:rw"
+    ports:
+      - "5431:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "8080:80"
